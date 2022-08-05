@@ -124,7 +124,6 @@
                                 </tr>
                             </thead>
                             <tbody id="container">
-                                <!--//todo 表格内容使用模板渲染 -->
                                 <script type="text/x-handlebars-template" id="template">
                     {{#each this}}
     
@@ -143,14 +142,10 @@
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
                         <script src="./static/JavaScript/jquery.min.js"></script>
                         <script>
-                            //获取需要放数据的容器
                             $.getJSON("./TeamInfo/info.json", function (data) {
                                 var container = document.querySelector('#container');
-                                //也就是获取我们定义的模板的dom对象。主要是想获取里面的内容（innerHTML）
                                 var templateDom = document.querySelector('#template');
-                                //编译模板的里的内容
                                 var template = Handlebars.compile(templateDom.innerHTML);
-                                //把后台获取到的数据student渲染到页面
                                 container.innerHTML = template(data);
                             });
                         </script>
